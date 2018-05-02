@@ -1,0 +1,5 @@
+sceneSetups:
+- path: "H:/\u5E73\u65F6\u4F5C\u4E1A/\u5927\u4E8C\u7B2C\u4E8C\u5B66\u671F/unity/data3/New
+    Unity Project/Assets/first_pro.unity"
+  isLoaded: 1
+  isActive: 1
