@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class move : MonoBehaviour {
+
     public Rigidbody2D rig;
     public Transform origin;
-	// Use this for initialization
-	void Start () {
-        mGroundCheck = transform.Find("GroundCheck");
+    public Transform mGroundCheck;
 
-    }
     public int MaxSpeed = 10;
     public int Moveforce = 80;
+    public int force = 500;
+
+
 
     private bool bFacerright = true;
     private bool bJump = false;
-    public Transform mGroundCheck;
 
+
+    // Use this for initialization
+    void Start () {
+        mGroundCheck = transform.Find("GroundCheck");
+
+    }
+   
 
     void FixedUpdate()
     {
@@ -28,7 +35,7 @@ public class move : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.Space)&& Physics2D.Raycast(origin.position,Vector2.down,0.1f))
         {
-            rig.AddForce(new Vector2(0, 500));
+            rig.AddForce(new Vector2(0, force));
         }
             
 

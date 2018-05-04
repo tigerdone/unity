@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\script\BackgroundParalllax.cs" />
      <Compile Include="Assets\script\camera_follow.cs" />
      <Compile Include="Assets\script\move.cs" />
  <Reference Include="UnityEngine.UI">

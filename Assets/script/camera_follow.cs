@@ -2,79 +2,78 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class camera_follow : MonoBehaviour {
-    public Transform hero;
+public class camera_follow : MonoBehaviour
+{
+    public float xMargin = 1f;      // Distance in the x axis the player can move before the camera follows.
+    public float yMargin = 1f;      // Distance in the y axis the player can move before the camera follows.
+    public float xSmooth = 8f;      // How smoothly the camera catches up with it's target movement in the x axis.
+    public float ySmooth = 8f;      // How smoothly the camera catches up with it's target movement in the y axis.
+    public Vector2 maxXAndY;        // The maximum x and y coordinates the camera can have.
+    public Vector2 minXAndY;        // The minimum x and y coordinates the camera can have.
 
-    public float Xdist = 3f;
-    public float Ydist = 3f;
-    public Vector2 minxy;
-    public Vector2 maxxy;
-    public float xsmooth = 5f;
-    public float ysmooth = 5f;
+
+    public Transform player;       // Reference to the player's transform.
 
 
-    bool IsMoveX()
+    void Awake()
     {
-        if(Mathf.Abs(transform.position.x - hero.position.x) > Xdist)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
+        // Setting up the reference.
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void trackCam()
+
+    bool CheckXMargin()
     {
-        float newx = transform.position.x;
-        float newy = transform.position.x;
-        if (IsMoveX())
-        {
-            newx = Mathf.Lerp(transform.position.x, hero.position.x,xsmooth*Time.deltaTime);
-        }
-
-        newx = Mathf.Clamp(newx, minxy.x, maxxy.x);
-        newy = Mathf.Clamp(newy, minxy.y, maxxy.y);
-
-
-        transform.position = new Vector3(newx, newx, newx);
+        // Returns true if the distance between the camera and the player in the x axis is greater than the x margin.
+        return Mathf.Abs(transform.position.x - player.position.x) > xMargin;
     }
 
 
-    private float x = 0f;
-    private float y = 0f;
-    private float z = -24.14f;
-    
-
-    void position()
+    bool CheckYMargin()
     {
-        x = hero.position.x;
-        y = hero.position.y;
-        
-    }
-
-    // Use this for initialization
-    void Start () {
-        hero = GameObject.Find("hero").transform;
-        //hero = GameObject.FindGameObjectsWithTag("Player").transform;
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-        transform.position = new Vector3(hero.position.x, hero.position.y, z);
-        Debug.Log(hero.position.x);
-        Debug.Log(hero.position.y);
-
-
+        // Returns true if the distance between the camera and the player in the y axis is greater than the y margin.
+        return Mathf.Abs(transform.position.y - player.position.y) > yMargin;
     }
 
 
+    void FixedUpdate()
+    {
+        TrackPlayer();
+    }
+
+
+    void TrackPlayer()
+    {
+        // By default the target x and y coordinates of the camera are it's current x and y coordinates.
+        float targetX = transform.position.x;
+        float targetY = transform.position.y;
+
+        //Debug.Log("Time.deltaTime" + Time.deltaTime);
+
+        // If the player has moved beyond the x margin...
+        if (CheckXMargin())
+        { // ... the target x coordinate should be a Lerp between the camera's current x position and the player's current x position.
+            targetX = Mathf.Lerp(transform.position.x, player.position.x, xSmooth * Time.deltaTime);
+
+            //Debug.Log("targetX：----" + targetX + "----targetX：" + transform.position.x + player.position.x);
+            //Debug.Log("targetssssX：" + xSmooth * Time.deltaTime);
+
+        }
+        // If the player has moved beyond the y margin...
+        if (CheckYMargin())
+        {   // ... the target y coordinate should be a Lerp between the camera's current y position and the player's current y position.
+            targetY = Mathf.Lerp(transform.position.y, player.position.y, ySmooth * Time.deltaTime);
+
+            //Debug.Log("targetY：" + targetY + "targetY：" + transform.position.y + player.position.y);
+            //Debug.Log("targetssssY：" + ySmooth * Time.deltaTime);
+
+
+        }
+        // The target x and y coordinates should not be larger than the maximum or smaller than the minimum.
+        targetX = Mathf.Clamp(targetX, minXAndY.x, maxXAndY.x);
+        targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
+
+        // Set the camera's position to the target position with the same z component.
+        transform.position = new Vector3(targetX, targetY, transform.position.z);
+    }
 }
-
-
-
-

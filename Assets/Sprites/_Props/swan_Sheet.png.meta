@@ -10,6 +10,7 @@ TextureImporter:
     21300010: Swan_Sheet 1_5
     21300012: Swan_Sheet 1_6
     21300014: Swan_Sheet 1_7
+  externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -18,6 +19,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -33,10 +36,13 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: 1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -58,12 +64,14 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -76,22 +84,24 @@ TextureImporter:
         width: 231
         height: 101
       alignment: 9
-      pivot: {x: 0.64191204, y: 0.5873848}
+      pivot: {x: 0.14654607, y: 0.81397784}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Swan_Sheet 1_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 252
+        x: 37
+        y: 253
         width: 230
         height: 76
       alignment: 9
-      pivot: {x: 0.6480112, y: 0.38387057}
+      pivot: {x: 0.1504912, y: 0.61272955}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Swan_Sheet 1_2
@@ -102,9 +112,10 @@ TextureImporter:
         width: 241
         height: 125
       alignment: 9
-      pivot: {x: 0.6621823, y: 0.22765942}
+      pivot: {x: 0.15318437, y: 0.4327173}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Swan_Sheet 1_3
@@ -115,9 +126,10 @@ TextureImporter:
         width: 236
         height: 166
       alignment: 9
-      pivot: {x: 0.64959055, y: 0.15820716}
+      pivot: {x: 0.15308264, y: 0.27953017}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Swan_Sheet 1_4
@@ -128,22 +140,24 @@ TextureImporter:
         width: 236
         height: 121
       alignment: 9
-      pivot: {x: 0.64959043, y: 0.2290763}
+      pivot: {x: 0.15308264, y: 0.380388}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Swan_Sheet 1_5
       rect:
         serializedVersion: 2
-        x: 43
+        x: 41
         y: 607
         width: 230
         height: 153
       alignment: 9
-      pivot: {x: 0.648011, y: 0.76370376}
+      pivot: {x: 0.14651097, y: 0.90730155}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Swan_Sheet 1_6
@@ -154,24 +168,27 @@ TextureImporter:
         width: 235
         height: 97
       alignment: 9
-      pivot: {x: 0.66095775, y: 0.62998223}
+      pivot: {x: 0.15065074, y: 0.8281697}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Swan_Sheet 1_7
       rect:
         serializedVersion: 2
-        x: 540
+        x: 539
         y: 692
         width: 240
         height: 80
       alignment: 9
-      pivot: {x: 0.6365898, y: 0.37391585}
+      pivot: {x: 0.15598577, y: 0.6485466}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
