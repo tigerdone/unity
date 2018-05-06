@@ -6,13 +6,20 @@ public class move : MonoBehaviour {
 
     public Rigidbody2D rig;
     public Transform origin;
+    public Transform bg1;
+    public Transform bg2;
+    public Transform bg3;
+    public Transform bg4;
     public Transform mGroundCheck;
 
     public int MaxSpeed = 10;
     public int Moveforce = 80;
     public int force = 500;
+    //public float bgchangetimes = 1f;
 
 
+    private int dirc = 1;
+    //private float bgchange = 1f;
 
     private bool bFacerright = true;
     private bool bJump = false;
@@ -21,7 +28,8 @@ public class move : MonoBehaviour {
     // Use this for initialization
     void Start () {
         mGroundCheck = transform.Find("GroundCheck");
-
+        //Debug.Log("Vector2.down:" + Vector2.down);
+        Debug.Log("Vector2.right:" + Vector2.right);
     }
    
 
@@ -32,12 +40,6 @@ public class move : MonoBehaviour {
 
         Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
         //控制移动
-
-        if(Input.GetKeyDown(KeyCode.Space)&& Physics2D.Raycast(origin.position,Vector2.down,0.1f))
-        {
-            rig.AddForce(new Vector2(0, force));
-        }
-            
 
         if (fInput * rigidBody.velocity.x < MaxSpeed)
         {
@@ -57,25 +59,40 @@ public class move : MonoBehaviour {
         if(fInput < 0 && bFacerright)
         {
             flip();
-
         }
 
-
-        //Debug.Log(rigidBody.velocity[0]);
-        //Debug.Log(fInput);
-
-        //if (bJump)
-        //{
-        //    rigidBody.AddForce(new Vector2(0, jumpf))
-        //    bJump = false;
-        //}
 
     }
 
     // Update is called once per frame
     void Update () {
-		
-	}
+
+        if (Input.GetKeyDown(KeyCode.Space) && Physics2D.Raycast(origin.position, Vector2.down, 0.1f))
+        {
+            rig.AddForce(new Vector2(0, force));
+            //rig.AddForce(Vector2.right* force);
+
+        }
+
+        //瞬间移动
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            //判断方向
+            if (transform.localScale.x > 0)
+            {
+                dirc = 1;
+            }
+            else
+            {
+                dirc = -1;
+            }
+            rig.AddForce(new Vector2(force * 5 * dirc, 0));
+            //rig.AddForce(Vector2.right * force*3* dirc);
+
+        }
+
+
+    }
 
     void flip()
     {
