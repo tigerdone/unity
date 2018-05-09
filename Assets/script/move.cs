@@ -11,14 +11,13 @@ public class move : MonoBehaviour {
     public Transform bg3;
     public Transform bg4;
     public Transform mGroundCheck;
-
     public int MaxSpeed = 10;
     public int Moveforce = 80;
     public int force = 500;
     //public float bgchangetimes = 1f;
 
-
-    private int dirc = 1;
+    [HideInInspector]
+    public int dirc = 1;
     //private float bgchange = 1f;
 
     private bool bFacerright = true;
