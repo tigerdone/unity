@@ -21,15 +21,16 @@ public class move : MonoBehaviour {
     //private float bgchange = 1f;
 
     private bool bFacerright = true;
-    private bool bJump = false;
+    //private bool bJump = false;
 
 
     // Use this for initialization
     void Start () {
-        mGroundCheck = transform.Find("GroundCheck");
+        //mGroundCheck = transform.Find("GroundCheck");
         //Debug.Log("Vector2.down:" + Vector2.down);
-        Debug.Log("Vector2.right:" + Vector2.right);
+        //Debug.Log("Vector2.right:" + Vector2.right);
     }
+
    
 
     void FixedUpdate()
@@ -101,5 +102,17 @@ public class move : MonoBehaviour {
         transform.localScale = theScale;
     }
 
+    void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("开始碰撞" + col.collider.gameObject.name);
+    }
+    void OnCollisionStay(Collision col)
+    {
+        Debug.Log("持续碰撞中" + col.collider.gameObject.name);
+    }
+    void OnCollisionExit(Collision col)
+    {
+        Debug.Log("碰撞结束" + col.collider.gameObject.name);
+    }
 }
 

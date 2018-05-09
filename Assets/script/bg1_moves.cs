@@ -10,7 +10,7 @@ public class bg1_moves : MonoBehaviour {
 
 
     public Transform player;       // Reference to the player's transform.
-    private float increment = 0f; //增量
+    //private float increment = 0f; //增量
     private float per_position = 0f; //前一位置坐标
 
 
@@ -34,7 +34,7 @@ public class bg1_moves : MonoBehaviour {
     {
         // By default the target x and y coordinates of the camera are it's current x and y coordinates.
         float targetX = transform.position.x;
-        float targetY = transform.position.y;
+        //float targetY = transform.position.y;
 
         targetX = transform.position.x - (player.position.x- per_position) * ScaleX;
         //targetY = Mathf.Lerp(transform.position.y, player.position.y, ySmooth * Time.deltaTime);
