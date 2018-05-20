@@ -54,10 +54,15 @@
      <Compile Include="Assets\boll.cs" />
      <Compile Include="Assets\script\BackgroundParalllax.cs" />
      <Compile Include="Assets\script\bg1_moves.cs" />
+     <Compile Include="Assets\script\bird.cs" />
+     <Compile Include="Assets\script\bron_master.cs" />
      <Compile Include="Assets\script\camera_follow.cs" />
      <Compile Include="Assets\script\collider.cs" />
+     <Compile Include="Assets\script\die_bird.cs" />
+     <Compile Include="Assets\script\enemy.cs" />
      <Compile Include="Assets\script\fire.cs" />
      <Compile Include="Assets\script\gun.cs" />
+     <Compile Include="Assets\script\health.cs" />
      <Compile Include="Assets\script\move.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>H:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

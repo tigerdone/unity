@@ -20,6 +20,8 @@ public class move : MonoBehaviour {
     public int dirc = 1;
     //private float bgchange = 1f;
 
+    public Animator anim;
+
     private bool bFacerright = true;
     //private bool bJump = false;
 
@@ -46,7 +48,19 @@ public class move : MonoBehaviour {
             rigidBody.AddForce(Vector2.right * fInput * Moveforce);
         }
 
+        if(fInput != 0)
+        {
+            anim.SetBool("run", true);
+            anim.SetBool("stay", false);
 
+        }
+        else
+        {
+            anim.SetBool("stay", true);
+            anim.SetBool("run", false);
+
+        }
+        //Debug.Log(fInput);
         //限制最大速度
         if (Mathf.Abs(rigidBody.velocity.x) > MaxSpeed)
         {
@@ -102,17 +116,6 @@ public class move : MonoBehaviour {
         transform.localScale = theScale;
     }
 
-    void OnCollisionEnter(Collision col)
-    {
-        Debug.Log("开始碰撞" + col.collider.gameObject.name);
-    }
-    void OnCollisionStay(Collision col)
-    {
-        Debug.Log("持续碰撞中" + col.collider.gameObject.name);
-    }
-    void OnCollisionExit(Collision col)
-    {
-        Debug.Log("碰撞结束" + col.collider.gameObject.name);
-    }
+    
 }
 
