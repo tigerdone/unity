@@ -9,9 +9,11 @@ public class gun : MonoBehaviour
     public int speed = 20;
     public Rigidbody2D hero;
     public float recoil = 1000;
+    public Animator anim;
+
+
 
     private Transform playerContral;
-
 
     void Awake()
     {
@@ -33,7 +35,7 @@ public class gun : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if(playerContral.localScale.x > 0)
+            if (playerContral.localScale.x > 0)
             {
                 // ... instantiate the rocket facing right and set it's velocity to the right. 
                 Rigidbody2D bulletInstance = Instantiate(rocket, transform.position + transform.forward, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
@@ -48,8 +50,11 @@ public class gun : MonoBehaviour
                 bulletInstance.velocity = new Vector2(-speed, 0);
                 hero.AddForce(new Vector2(recoil, 0));
             }
+            anim.SetTrigger("fire");
+
+
         }
 
-            
+
     }
 }

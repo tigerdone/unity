@@ -31,6 +31,7 @@ public class move : MonoBehaviour {
         //mGroundCheck = transform.Find("GroundCheck");
         //Debug.Log("Vector2.down:" + Vector2.down);
         //Debug.Log("Vector2.right:" + Vector2.right);
+
     }
 
    
@@ -85,7 +86,7 @@ public class move : MonoBehaviour {
         {
             rig.AddForce(new Vector2(0, force));
             //rig.AddForce(Vector2.right* force);
-
+            anim.SetTrigger("Jump");
         }
 
         //瞬间移动
