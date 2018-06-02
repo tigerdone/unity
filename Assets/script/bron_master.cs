@@ -8,7 +8,7 @@ public class bron_master : MonoBehaviour {
     public Transform master;
 
     public float y = 5;
-
+    public Animator anim;
 
     private float startTime;
     private float getTime;
@@ -40,7 +40,7 @@ public class bron_master : MonoBehaviour {
         {
             Instantiate(master, transform.position, Quaternion.identity);
             startTime = getTime;
-
+            anim.SetTrigger("bron");
         }
         //Debug.Log();
         //Debug.Log("y"+ vec);
